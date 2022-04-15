@@ -1,5 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'Interior_detail_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -70,11 +73,42 @@ class _MainPageState extends State<MainPage> {
                     padding: const EdgeInsets.fromLTRB(32, 0, 32, 14),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8),
-                      child: Image.asset(
-                        "assets/jpg/furniture_1.jpg",
-                        height: 148,
-                        width: size.width,
-                        fit: BoxFit.cover,
+                      child: GestureDetector(
+                        onTap: () => Navigator.of(context).push(
+                            PageRouteBuilder(
+                                opaque: true,
+                                transitionDuration:
+                                    const Duration(milliseconds: 300),
+                                pageBuilder: (BuildContext context, _, __) {
+                                  return const InteriorDetailPage();
+                                },
+                                transitionsBuilder: (_,
+                                    Animation<double> animation,
+                                    __,
+                                    Widget child) {
+                                  return SlideTransition(
+                                    child: child,
+                                    position: Tween<Offset>(
+                                      begin: Offset(0, 1),
+                                      end: Offset.zero,
+                                    ).animate(animation),
+                                  );
+                                })),
+
+                        // () => Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const InteriorDetailPage()),
+                        // ),
+                        child: Hero(
+                          tag: "pic",
+                          child: Image.asset(
+                            "assets/jpg/furniture_1.jpg",
+                            height: 148,
+                            width: size.width,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
                       ),
                     ),
                   ),
