@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui_template/Interior_App/main_page.dart';
 
+import 'fruit_shop/Fruit_home_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MainPage(),
+      home: const FruitHomeScreen(),
     );
   }
 }
