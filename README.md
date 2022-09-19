@@ -13,7 +13,9 @@ completely free for everyone. Its build-in Flutter Dart.
 
 ## Food shop
 
-[Watch on YouTube - Food shop](https://youtu.be/xz1m_vapczI)
+[Watch on YouTube - Food shop main screen](https://youtu.be/xz1m_vapczI)
 
 
 <img src="screenshots/Food_shop.jpg" data-canonical-src="screenshots/Food_shop.jpg" width="300" />
+
+<img src="screenshots/Food_shop_details.jpg" data-canonical-src="screenshots/Food_shop_details.jpg" width="300" />

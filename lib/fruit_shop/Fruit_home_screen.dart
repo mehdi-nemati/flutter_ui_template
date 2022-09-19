@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_ui_template/fruit_shop/fruit_data.dart';
 
+import 'fruit_details_screen.dart';
+
 class FruitHomeScreen extends StatelessWidget {
   const FruitHomeScreen({Key? key}) : super(key: key);
 
@@ -107,7 +109,15 @@ class FruitHomeScreen extends StatelessWidget {
                     (context, index) => FruitCard(
                           allFruits[index],
                           'Item $index}',
-                          () {},
+                          () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => FruitSetailsScreen(
+                                          allFruits[index],
+                                          index,
+                                        )));
+                          },
                         ),
                     childCount: allFruits.length),
               ),
@@ -134,7 +144,7 @@ class FruitCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: () => onTap(),
       child: Container(
         decoration: BoxDecoration(
           color: Color(fruitItem.colorCode!),
